@@ -28,7 +28,7 @@ def id3_pruned(dataset, target_index, features, depth=0, max_depth=None,
   
     # Start building tree with this feature
     tree = {best_feature_name: {}}
-    values = set(row[best_feature_index] for row in dataset)
+    values = sorted(set(row[best_feature_index] for row in dataset))
   
     # Build subtree for each value
     for v in values:
