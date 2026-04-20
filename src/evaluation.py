@@ -69,7 +69,8 @@ def plot_confusion_matrix(y_true, y_pred, title, save_path=None, show=False):
     sns.heatmap(cm, annot=True, square=True, fmt="d", cmap='Blues_r')
     plt.xlabel('Predicted labels')
     plt.ylabel('Actual labels')
-    plt.title(title)
+    plt.title(title, pad=12)
+    plt.tight_layout()
 
     if save_path:
         os.makedirs(os.path.dirname(save_path), exist_ok=True)
