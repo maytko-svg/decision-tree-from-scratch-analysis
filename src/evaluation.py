@@ -53,11 +53,11 @@ def evaluate(name, y_true, y_pred):
     f1 = f1_score(y_true, y_pred, average='macro', zero_division=0)
 
     return {
-        "model": name,
-        "accuracy": accuracy,
-        "precision": precision,
-        "recall": recall,
-        "f1": f1
+        "Configuration": name,
+        "Accuracy": accuracy,
+        "Precision": precision,
+        "Recall": recall,
+        "F1": f1
     }
 
 # Plot confusion matrix
