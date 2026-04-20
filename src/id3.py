@@ -63,7 +63,7 @@ def id3(dataset, target_index, features):
     best_feature_name = features[best_feature_index]
 
     tree = {best_feature_name: {}}
-    values = set(row[best_feature_index] for row in dataset)
+    values = sorted(set(row[best_feature_index] for row in dataset))
 
     for v in values:
         subset = [
