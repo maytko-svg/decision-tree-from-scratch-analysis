@@ -10,8 +10,8 @@ def entropy(labels):
     counts = Counter(labels)
     ent = 0.0
     for count in counts.values():
-         p = count / total
-          ent -= p * math.log2(p)
+        p = count / total
+        ent -= p * math.log2(p)
         
     return ent
 
