@@ -1,6 +1,7 @@
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
 import matplotlib.pyplot as plt
 import seaborn as sns
+import os
 
 # Predict class label by recursively traversing the decision tree based on feature values
 def predict(tree, features, sample):
