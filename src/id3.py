@@ -27,7 +27,7 @@ def information_gain(dataset, feature_index, target_index):
         subset_entropy = entropy([row[target_index] for row in subset]) 
         entropy_after += weight * subset_entropy 
 
-  return entropy_before - entropy_after
+    return entropy_before - entropy_after
 
 # Choose the best split function
 def best_split(dataset, target_index):
