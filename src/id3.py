@@ -62,8 +62,8 @@ def id3(dataset, target_index, features):
     for v in values:
         subset = [row[:best_feature_index] + row[best_feature_index+1:] 
                   for row in dataset if row[best_feature_index] == v]
-    new_features = features[:best_feature_index] + features[best_feature_index+1:] 
-    subtree = id3(subset, target_index-1, new_features) 
-    tree[best_feature_name][v] = subtree
+        new_features = features[:best_feature_index] + features[best_feature_index+1:] 
+        subtree = id3(subset, target_index-1, new_features) 
+        tree[best_feature_name][v] = subtree
 
     return tree
