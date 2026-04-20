@@ -65,7 +65,7 @@ def evaluate(name, y_true, y_pred):
 def plot_confusion_matrix(y_true, y_pred, title, save_path=None, show=False):
     cm = confusion_matrix(y_true, y_pred)
 
-    plt.figure(figsize=(4,4))
+    plt.figure(figsize=(6,5))
     sns.heatmap(cm, annot=True, square=True, fmt="d", cmap='Blues_r')
     plt.xlabel('Predicted labels')
     plt.ylabel('Actual labels')
