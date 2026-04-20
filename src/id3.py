@@ -12,7 +12,7 @@ def entropy(labels):
     for count in counts.values():
       p = count / total
       ent -= p * math.log2(p)
-
+    
     return ent
 
 # Information gain calculation
