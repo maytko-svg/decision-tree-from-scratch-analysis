@@ -1,4 +1,5 @@
 from src.id3 import best_split
+from collections import Counter
 
 # Build ID3 with pruning parameters
 def id3_pruned(dataset, target_index, features, depth=0, max_depth=None,
