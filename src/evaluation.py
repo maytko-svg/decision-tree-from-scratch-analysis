@@ -60,7 +60,7 @@ def evaluate(name, y_true, y_pred):
     }
 
 # Plot confusion matrix
-def plot_confusion_matrix(y_true, y_pred, title, save_path=None):
+def plot_confusion_matrix(y_true, y_pred, title, save_path=None, show=False):
     cm = confusion_matrix(y_true, y_pred)
 
     plt.figure(figsize=(4,4))
@@ -72,5 +72,8 @@ def plot_confusion_matrix(y_true, y_pred, title, save_path=None):
     if save_path:
         os.makedirs(os.path.dirname(save_path), exist_ok=True)
         plt.savefig(save_path)
+    
+    if show:
+        plt.show()
     
     plt.close()
