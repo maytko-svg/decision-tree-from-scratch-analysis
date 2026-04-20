@@ -1,3 +1,4 @@
+# Build ID3 with pruning parameters
 def id3_pruned(dataset, target_index, features, depth=0, max_depth=None,
                min_samples_split=2, min_samples_leaf=1):
     labels = [row[target_index] for row in dataset]
