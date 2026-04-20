@@ -2,6 +2,7 @@ from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_sc
 import matplotlib.pyplot as plt
 import seaborn as sns
 import os
+from sklearn.metrics import confusion_matrix
 
 # Predict class label by recursively traversing the decision tree based on feature values
 def predict(tree, features, sample):
