@@ -1,4 +1,4 @@
-# From scratch ID3 decision tree implementation with pruning 
+# From scratch ID3 decision tree implementation with pre-pruning 
 # Extends the base ID3 algorithm by introducing stopping criteria to control model complexity and reduce overfitting
 
 from src.id3 import best_split
