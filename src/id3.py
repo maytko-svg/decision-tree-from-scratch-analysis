@@ -1,5 +1,9 @@
 # From scratch ID3 decision tree implementation 
-# Includes entropy calculation, information gain, recursive tree construction
+
+# Includes:
+# Entropy calculation
+# Information gain
+# Recursive tree construction
 
 import math
 from collections import Counter
