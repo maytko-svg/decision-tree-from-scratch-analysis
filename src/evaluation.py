@@ -1,3 +1,11 @@
+# Utility functions for inference and evaluation of custom ID3 decision tree
+
+# Includes:
+# Recursive prediction by traversing the tree structure
+# Batch prediction for datasets
+# Standard classification metrics
+# Confusion matrix with optional saving
+
 import matplotlib.pyplot as plt
 import os
 import seaborn as sns
