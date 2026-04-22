@@ -1,4 +1,3 @@
-# id3.py
 # From scratch ID3 decision tree implementation 
 # Includes entropy calculation, information gain, recursive tree construction
 
