@@ -1,5 +1,4 @@
 # From scratch ID3 decision tree implementation 
-
 # Includes:
 # Entropy calculation
 # Information gain
