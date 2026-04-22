@@ -4,31 +4,31 @@ import seaborn as sns
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
 from sklearn.metrics import confusion_matrix
 
-# Predict class label by recursively traversing the decision tree based on feature values
+# Predict class label by recursively traversing the decision tree 
 def predict(tree, features, sample):
-    # If node is a leaf, return it
+    # Return label if leaf node is reached
     if not isinstance(tree, dict):
         return tree
     
-    # Get the root feature at this node
+    # Get current feature and its branches 
     root = next(iter(tree))
     branches = tree[root]
     
-    # Find the index of this feature in sample
+    # Locate feature value in the sample 
     feature_index = features.index(root)
     sample_value = sample[feature_index]
     
-    # Follow the branch matching this sample value
+    # Follow branch matching feature value and recurse
     if sample_value in branches:
         subtree = branches[sample_value]
-        return predict(subtree, [f for f in features if f != root], # Recursively call function
+        return predict(subtree, [f for f in features if f != root],
                       [v for i, v in enumerate(sample) if i != feature_index])
       
     else:
-        # If unseen value, return majority class
+        # Fallback to default class for unseen feature value  
         return 0
 
-# Generate true and predicted labels for a dataset using the predict() function
+# Generate true and predicted labels for dataset 
 def get_predictions(tree, dataset, feature_names):
     y_true = []
     y_pred = []
@@ -36,17 +36,18 @@ def get_predictions(tree, dataset, feature_names):
     for row in dataset:
         features_only = row[:-1]
         true_label = row[-1]
-    
-        pred = predict(tree, feature_names[:], features_only)
+
+        # Use copy of feature list to avoid mutation during recursion
+        pred = predict(tree, feature_names[:], features_only) 
         if pred is None:
-            pred = 0
+            pred = 0 # default class fallback
     
         y_true.append(true_label)
         y_pred.append(pred)
     
     return y_true, y_pred
 
-# Evaluate decision tree on accuracy, precision, recall and F1 score
+# Compute evaluation metrics (accuracy, precision, recall, F1)
 def evaluate(name, y_true, y_pred):
     accuracy = accuracy_score(y_true, y_pred)
     precision = precision_score(y_true, y_pred, average='macro', zero_division=0)
@@ -61,7 +62,7 @@ def evaluate(name, y_true, y_pred):
         "F1": f1
     }
 
-# Plot confusion matrix
+# Plot and optionally save confusion matrix
 def plot_confusion_matrix(y_true, y_pred, title, save_path=None, show=False):
     cm = confusion_matrix(y_true, y_pred)
 
