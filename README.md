@@ -30,6 +30,7 @@ Eight configurations are evaluated, and split into three groups:
 |---------------------|----------------------------------------|
 | Plain ID3           | Baseline — no preprocessing            |
 | Plain ID3 + Pruning | `max_depth=2`, `min_samples_split=10`  |
+
 **Finding:** Plain ID3 performs poorly on raw continuous data because the algorithm was designed for categorical inputs. It cannot find optimal split thresholds, which makes preprocessing essential. 
 
 **2. Binned ID3 (discretised features)**
@@ -39,6 +40,7 @@ Eight configurations are evaluated, and split into three groups:
 | Binned ID3 + Pruning | `max_depth=3`, `min_samples_split=15`, `min_samples_leaf=8`  |
 | Binned ID3 + Pruning + Tuning (best custom model)| `max_depth=2`, `min_samples_split=10`, `min_samples_leaf=5` |
 | Binned ID3 + Over-Pruning | `max_depth=1`, `min_samples_split=20`, `min_samples_leaf=10` - demonstrates underfitting |
+
 **Finding:** Binning significantly improves ID3 performance. Carefully tuned pruning further boosts generalisation by eliminating unnecessary splits. Over-pruning causes underfitting and degrades accuracy. 
 
 **3. Sklearn Decision Tree (benchmark)**
@@ -46,6 +48,7 @@ Eight configurations are evaluated, and split into three groups:
 |---------------------|----------------------------------------|
 | Sklearn DT (Raw values)           | Default `DecisionTreeClassifier` with continuous features         |
 | Sklearn DT (Binned + Encoded) | Same discretisation as ID3 (`criterion="entropy"`) with matched pruning params  |
+
 **Finding:** Sklearn on raw features achieves the highest overall performance as its ability to find optimal continuous split thresholds preserves full feature information. Applying discretisation to sklearn hurts performance because it introduces information lsos that the library's native handling avoids. 
 
 # Key Takeaways
