@@ -24,8 +24,21 @@ decision-tree-from-scratch-analysis/
 # Experiments
 Eight configurations are evaluated, and split into three groups:
 
-**Plain ID3 (raw continuous features)**
-| Configuration       | Notes                              |
-|---------------------|------------------------------------|
-| Plain ID3           | Baseline — no preprocessing        |
+
+**1. Plain ID3 (raw continuous features)**
+| Configuration       | Notes                                  |
+|---------------------|----------------------------------------|
+| Plain ID3           | Baseline — no preprocessing            |
 | Plain ID3 + Pruning | `max_depth=2`, `min_samples_split=10`  |
+**Finding:** Plain ID3 performs poorly on raw continuous data because the algorithm was designed for categorical inputs. It cannot find optimal split thresholds, which makes preprocessing essential. 
+
+**2. Binned ID3 (discretised features)**
+| Configuration       | Notes                                  |
+|---------------------|----------------------------------------|
+| Binned ID3           | No pruning           |
+| Binned ID3 + Pruning | `max_depth=3`, `min_samples_split=15`, `min_samples_leaf=8`  |
+| Binned ID3 + Pruning + Tuning | `max_depth=2`, `min_samples_split=10`, `min_samples_leaf=5` |
+   (best custom model)  
+| Binned ID3 + Over-Pruning     | `max_depth=1`, `min_samples_split=20`, `min_samples_leaf=10` - demonstrates underfitting |
+
+
