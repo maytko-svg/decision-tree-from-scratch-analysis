@@ -19,3 +19,13 @@ decision-tree-from-scratch-analysis/
 │   └── confusion_matrices/   
 └── ID3_Decision_Tree_Ablation_Study.ipynb
 ```
+**Note:** Clone the report before running locally or in Colab. The notebook handles this automatically when Colab is detected.
+
+# Experiments
+Eight configurations are evaluated, and split into three groups:
+
+**Plain ID3 (raw continuous features)**
+| Configuration       | Notes                              |
+|---------------------|------------------------------------|
+| Plain ID3           | Baseline — no preprocessing        |
+| Plain ID3 + Pruning | `max_depth=2`, `min_samples_split=10`  |
