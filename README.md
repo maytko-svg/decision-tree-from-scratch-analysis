@@ -8,6 +8,7 @@ This notebook explores how preprocessing choices (binning continuous features) a
 A 70/30 train and test split is applied with `random_state = 42` for reproducibility
 
 # Project Structure 
+```
 decision-tree-from-scratch-analysis/  
 ├── src/  
 │   ├── id3.py                   # Custom ID3 implementation  
@@ -17,3 +18,4 @@ decision-tree-from-scratch-analysis/
 │   ├── trees/                   # Rendered tree diagrams (Graphviz) of plain and best variants  
 │   └── confusion_matrices/   
 └── ID3_Decision_Tree_Ablation_Study.ipynb
+```
