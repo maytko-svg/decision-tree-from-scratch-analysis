@@ -15,7 +15,7 @@ decision-tree-from-scratch-analysis/
 │   ├── pruning.py             # Pruned ID3 variant  
 │   └── evaluation.py          # Metrics and confusion matrix utilities  
 ├── outputs/  
-│   ├── trees/                 # Rendered tree diagrams (Graphviz) of plain and best variants  
+│   ├── trees/                 # Rendered tree diagrams (Graphviz) 
 │   └── confusion_matrices/   
 └── ID3_Decision_Tree_Ablation_Study.ipynb
 ```
